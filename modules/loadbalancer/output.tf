@@ -6,8 +6,6 @@ output "security_group_id" {
 output "target_group_arns" {
   value = {
     homepage = aws_lb_target_group.tg_homepage.arn
-    images   = aws_lb_target_group.tg_images.arn
-    register = aws_lb_target_group.tg_register.arn
   }
 }
 

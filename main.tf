@@ -12,7 +12,6 @@ module "security" {
   source     = "./modules/security"
   env        = var.env
   vpc_id     = module.network.vpc_id
-  trusted_ips = var.trusted_ips
 }
 
 module "compute" {

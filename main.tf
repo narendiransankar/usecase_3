@@ -19,7 +19,6 @@ module "compute" {
   env              = var.env
   public_subnet_ids = module.network.public_subnet_ids
   web_sg_id        = module.security.web_sg_id
-  key_name         = var.key_name
   instance_type    = var.instance_type
 }
 

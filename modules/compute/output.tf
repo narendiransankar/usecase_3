@@ -1,5 +1,5 @@
 output "instance_a_id" {
-  value = aws_instance.web.id
+  value = aws_instance.web[*].id
 }
 
 output "web_public_ips" {

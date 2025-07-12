@@ -29,13 +29,6 @@ variable "private_subnets" {
 }
 
 
-variable "trusted_ips" {
-  description = "List of trusted IPs for SSH access"
-  type        = list(string)
-  default     = ["0.0.0.0/0"]
-}
-
-
 variable "instance_type" {
   description = "EC2 instance type"
   type        = string

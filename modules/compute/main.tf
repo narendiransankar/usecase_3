@@ -8,7 +8,7 @@ resource "aws_instance" "web" {
   vpc_security_group_ids = [var.web_sg_id]
   key_name      = var.key_name
 
-user_data = file("${path.module}/userdata-0.sh")
+  user_data = file("${path.module}/userdata-0.sh")
 
   tags = {
     Name = "${var.env}-web-${count.index}"

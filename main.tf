@@ -28,6 +28,5 @@ module "loadbalancer" {
   subnet_ids = module.network.public_subnet_ids
   vpc_id     = module.network.vpc_id
   instance_a_id      = module.compute.instance_a_id
-  alb_security_group_id = module.compute.ec2_security_group_id
-#   depends_on = [module.ec2]
+
 }

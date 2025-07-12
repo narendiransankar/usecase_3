@@ -8,8 +8,4 @@ variable "vpc_id" {
   type        = string
 }
 
-variable "trusted_ips" {
-  description = "List of trusted IPs for SSH access"
-  type        = list(string)
-  default     = ["0.0.0.0/0"]
-}
+

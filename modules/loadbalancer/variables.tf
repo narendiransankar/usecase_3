@@ -11,7 +11,4 @@ variable "instance_a_id" {
   description = "instance a id"
 }
 
-variable "alb_security_group_id" {
-  description = "iindtance sg id"
-}
 

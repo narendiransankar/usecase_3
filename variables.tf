@@ -28,10 +28,6 @@ variable "private_subnets" {
   default     = ["10.0.3.0/24", "10.0.4.0/24"]
 }
 
-variable "key_name" {
-  description = "SSH key pair name"
-  type        = string
-}
 
 variable "trusted_ips" {
   description = "List of trusted IPs for SSH access"
@@ -43,6 +39,6 @@ variable "trusted_ips" {
 variable "instance_type" {
   description = "EC2 instance type"
   type        = string
-  default     = "t2.micro"
+  default     = "t2.medium"
 }
 

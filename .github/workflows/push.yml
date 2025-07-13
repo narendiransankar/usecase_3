@@ -34,11 +34,13 @@ jobs:
           tflint_version: latest
       - name: Initialize TFLint
         run: tflint --init
-
+      
+      - name: Run TFLint
+        run: tflint -f compact
+        
       - name: Run TFLint
         run: tflint -f compact
 
-      # Terraform Workflow
       - name: Terraform Init
         run: terraform init
 

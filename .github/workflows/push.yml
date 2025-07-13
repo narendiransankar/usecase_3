@@ -56,14 +56,17 @@ jobs:
       # - name: Run Checkov Security Scan
       #   run: checkov -d . --framework terraform
 
-      - name: Install Terraform Docs
-        run: |
-          curl -sSLo terraform-docs https://terraform-docs.io/dl/v0.16.0/linux-amd64 
-          chmod +x terraform-docs
-          sudo mv terraform-docs /usr/local/bin/terraform-docs
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
 
-      - name: Generate Terraform Documentation
-        run: terraform-docs markdown table --output-file README.md .
+      - name: Render terraform docs and push changes back to PR
+        uses: terraform-docs/gh-actions@main
+        with:
+          working-dir: .
+          output-file: README.md
+          output-method: inject
+          git-push: "true"
         
       - name: Terraform Plan
         run: terraform plan

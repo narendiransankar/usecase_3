@@ -60,7 +60,7 @@ jobs:
       #   run: checkov -d . --framework terraform
 
       - name: Generate Terraform Documentation
-        uses: terraform-docs/gh-actions@v0.16.0
+        uses: terraform-docs/gh-actions@v1.4.1
         with:
           working-dir: .
           output-file: README.md

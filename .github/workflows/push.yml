@@ -13,6 +13,9 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
 
     steps:
       - name: Checkout repository
@@ -56,17 +59,18 @@ jobs:
       # - name: Run Checkov Security Scan
       #   run: checkov -d . --framework terraform
 
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-
-      - name: Render terraform docs and push changes back to PR
-        uses: terraform-docs/gh-actions@main
+      - name: Generate Terraform Documentation
+        uses: terraform-docs/gh-actions@v0.16.0
         with:
           working-dir: .
           output-file: README.md
           output-method: inject
           git-push: "true"
+          git-commit-message: "docs: Update Terraform documentation"
+          git-commit-author: "GitHub Actions <actions@github.com>"
+          git-commit-email: "actions@github.com"
+          git-branch: "main"
+          github-token: ${{ secrets.REPO_TOKEN }}
         
       - name: Terraform Plan
         run: terraform plan

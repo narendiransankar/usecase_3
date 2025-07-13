@@ -27,7 +27,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
 
-      # 👉 TFLint Setup and Run
+
       - name: Set up TFLint
         uses: terraform-linters/setup-tflint@v4
         with:
@@ -38,8 +38,8 @@ jobs:
       - name: Run TFLint
         run: tflint -f compact
         
-      - name: Run TFLint
-        run: tflint -f compact
+      - name: Terraform Format Check
+        run: terraform fmt -recursive
 
       - name: Terraform Init
         run: terraform init
